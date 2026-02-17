@@ -1,0 +1,65 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:17-alpine
+    container_name: artist_app_postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: api_development
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - artist_app_network
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: artist_app_api
+    environment:
+      RAILS_ENV: development
+      DATABASE_HOST: db
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_NAME: api_development
+      RAILS_MAX_THREADS: 5
+    volumes:
+      - ./api:/rails
+      - bundle_cache:/usr/local/bundle
+      - rails_tmp:/rails/tmp
+      - rails_storage:/rails/storage
+    ports:
+      - "3000:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+    command: >
+      bash -c "
+        bundle install &&
+        bundle exec rails db:prepare &&
+        bundle exec rails server -b 0.0.0.0
+      "
+    stdin_open: true
+    tty: true
+    networks:
+      - artist_app_network
+
+volumes:
+  postgres_data:
+  bundle_cache:
+  rails_tmp:
+  rails_storage:
+
+
+networks:
+  artist_app_network:
+    driver: bridge
