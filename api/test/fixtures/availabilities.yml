@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  artist_profile: one
+  available_date: 2026-02-18
+  start_time: 2026-02-18 17:51:49
+  end_time: 2026-02-18 17:51:49
+  is_booked: false
+
+two:
+  artist_profile: two
+  available_date: 2026-02-18
+  start_time: 2026-02-18 17:51:49
+  end_time: 2026-02-18 17:51:49
+  is_booked: false

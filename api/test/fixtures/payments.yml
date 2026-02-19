@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  booking: one
+  stripe_payment_intent_id: MyString
+  amount: 9.99
+  currency: MyString
+  payment_status: MyString
+
+two:
+  booking: two
+  stripe_payment_intent_id: MyString
+  amount: 9.99
+  currency: MyString
+  payment_status: MyString
