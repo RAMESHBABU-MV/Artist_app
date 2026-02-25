@@ -74,7 +74,6 @@ export default function ReviewsScreen() {
                         </View>
                     </View>
 
-                    {/* Comment */}
                     <View className="bg-dark-800 p-3 rounded-xl mb-3 border-l-[3px] border-l-accent">
                         <Text className="text-slate-400 text-sm italic leading-5">"{review.comment}"</Text>
                     </View>

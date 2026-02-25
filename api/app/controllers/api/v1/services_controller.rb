@@ -7,7 +7,7 @@ module Api
       private
 
       def service_params
-        params.require(:service).permit(:artist_profile_id, :name, :description, :duration_minutes, :price)
+        params.require(:service).permit(:artist_profile_id, :service_category_id, :name, :description, :duration_minutes, :price)
       end
 
       def resource_params

@@ -53,8 +53,8 @@ export default function SearchFilterBar({
                                 <TouchableOpacity
                                     key={opt}
                                     className={`px-3 py-2 rounded-full border ${selectedFilter === opt
-                                            ? "bg-accent/15 border-accent"
-                                            : "bg-dark-700 border-white/5"
+                                        ? "bg-accent/15 border-accent"
+                                        : "bg-dark-700 border-white/5"
                                         }`}
                                     onPress={() => onFilterChange(opt)}
                                 >
@@ -74,8 +74,8 @@ export default function SearchFilterBar({
                                 <TouchableOpacity
                                     key={opt}
                                     className={`px-3 py-2 rounded-full border ${selectedStatus === opt
-                                            ? "bg-accent/15 border-accent"
-                                            : "bg-dark-700 border-white/5"
+                                        ? "bg-accent/15 border-accent"
+                                        : "bg-dark-700 border-white/5"
                                         }`}
                                     onPress={() => onStatusChange(opt)}
                                 >

@@ -3,7 +3,7 @@ module Api
     class SessionsController < ApplicationController
       skip_before_action :authorize_request, only: :create
 
-      # POST /login
+      # POST /api/v1/login
       def create
         @user = User.find_by_email(params[:email])
         if @user&.authenticate(params[:password])
@@ -21,6 +21,22 @@ module Api
         else
           render_error(message: 'Invalid credentials', status: :unauthorized)
         end
+      end
+
+      # DELETE /api/v1/logout
+      def destroy
+        # With JWT there is no server-side session to destroy.
+        # The client simply discards the token.
+        # If you later add a token blacklist table, invalidate the token here.
+        render_success(message: 'Logged out successfully')
+      end
+
+      # GET /api/v1/me
+      def me
+        render_success(
+          data: UserSerializer.new(current_user),
+          message: 'Current user retrieved successfully'
+        )
       end
 
       private
