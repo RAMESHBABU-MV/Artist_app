@@ -1,6 +1,6 @@
 import React from "react";
-import AdminDrawer from "./admin_panel/AdminDrawer";
+import DashboardTabs from "./dashboard/DashboardTabs";
 
 export default function Home() {
-    return <AdminDrawer />;
+    return <DashboardTabs />;
 }

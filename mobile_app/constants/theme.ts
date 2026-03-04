@@ -1,4 +1,4 @@
-// === Admin Panel Theme for Makeup Artist Booking App ===
+// === Dashboard Theme for Makeup Artist Booking App ===
 
 export const Colors = {
     // Background
@@ -30,26 +30,15 @@ export const Colors = {
     info: "#06b6d4",
     infoBg: "rgba(6, 182, 212, 0.12)",
 
-    // Role badges
-    adminBg: "rgba(168, 85, 247, 0.15)",
-    adminText: "#a855f7",
-    adminBorder: "rgba(168, 85, 247, 0.3)",
-    artistBg: "rgba(59, 130, 246, 0.15)",
-    artistText: "#3b82f6",
-    artistBorder: "rgba(59, 130, 246, 0.3)",
-    customerBg: "rgba(34, 197, 94, 0.15)",
-    customerText: "#22c55e",
-    customerBorder: "rgba(34, 197, 94, 0.3)",
-
     // Borders & Dividers
     border: "rgba(255, 255, 255, 0.06)",
     borderLight: "rgba(255, 255, 255, 0.1)",
     divider: "rgba(255, 255, 255, 0.04)",
 
-    // Drawer
-    drawerBg: "#0f172a",
-    drawerActive: "rgba(59, 130, 246, 0.12)",
-    drawerActiveBorder: "#3b82f6",
+    // Tab Bar
+    tabBarBg: "#0f172a",
+    tabBarActive: "#3b82f6",
+    tabBarInactive: "#64748b",
 };
 
 export const Spacing = {
@@ -89,16 +78,6 @@ export const FontWeights = {
     bold: "700" as const,
     extrabold: "800" as const,
 };
-
-// KPI Card color presets
-export const KPIColors = [
-    { bg: "rgba(59, 130, 246, 0.12)", icon: "#3b82f6", border: "rgba(59, 130, 246, 0.2)" },
-    { bg: "rgba(34, 197, 94, 0.12)", icon: "#22c55e", border: "rgba(34, 197, 94, 0.2)" },
-    { bg: "rgba(245, 158, 11, 0.12)", icon: "#f59e0b", border: "rgba(245, 158, 11, 0.2)" },
-    { bg: "rgba(168, 85, 247, 0.12)", icon: "#a855f7", border: "rgba(168, 85, 247, 0.2)" },
-    { bg: "rgba(6, 182, 212, 0.12)", icon: "#06b6d4", border: "rgba(6, 182, 212, 0.2)" },
-    { bg: "rgba(239, 68, 68, 0.12)", icon: "#ef4444", border: "rgba(239, 68, 68, 0.2)" },
-];
 
 // Avatar color presets (for initials-based avatars)
 export const AvatarColors = [

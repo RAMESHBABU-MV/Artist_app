@@ -9,6 +9,27 @@ module Api
         render_paginated_success(@bookings, message: "Bookings retrieved successfully")
       end
 
+      # GET /api/v1/bookings/my_bookings
+      # Returns bookings where the current user is the customer
+      def my_bookings
+        bookings = Booking.where(customer_id: current_user.id).order(booking_date: :desc)
+        bookings = paginate(bookings)
+        render_paginated_success(bookings, message: "Your bookings retrieved successfully")
+      end
+
+      # GET /api/v1/bookings/artist_bookings
+      # Returns bookings assigned to the current user's artist profile
+      def artist_bookings
+        profile = current_user.artist_profile
+        unless profile
+          return render_error(message: "Artist profile not found", status: :not_found)
+        end
+
+        bookings = Booking.where(artist_profile_id: profile.id).order(booking_date: :desc)
+        bookings = paginate(bookings)
+        render_paginated_success(bookings, message: "Artist bookings retrieved successfully")
+      end
+
       private
 
       def booking_params
