@@ -11,6 +11,6 @@ class BookingSerializer < ActiveModel::Serializer
   end
 
   def customer_name
-    object.customer&.full_name || object.customer&.email
+    object.customer&.name || object.customer&.email
   end
 end
